@@ -1,0 +1,165 @@
+<head>
+  <title>Evanston Restaurant Survey</title>
+  <style>
+    html, body { padding:20px; font-family:Arial; text-align:center; }
+
+    button { 
+      width: 60%; 
+      max-width: 400px; 
+      display:block; 
+      margin: 15px auto; 
+      padding:15px; 
+      font-size:18px;
+      border-radius:15px; 
+      border:none; 
+      background:#76bdbf; 
+      color:white; 
+    }
+
+    .hidden { display:none; }
+
+    .quiz { max-width:800px; margin:0 auto; }
+
+    h1 { color:#32b5b5; }
+    h2 { color:#075256; }
+
+    #results { margin-top:30px; font-size:1.1em; }
+    #charts { margin-top:40px; font-size:1.1em; }
+  </style>
+</head>
+
+<!--Quiz code below modified from portfolio. I did have to look up how to get it to get the users answers to save and appear at the end, and used some AI to help me with those functions, so I tweaked that.-->
+
+<body>
+  <h1>Evanston Restaurant Closure Survey</h1>
+  <div class="quiz">
+
+    <!-- Question 1 -->
+    <div id="q1">
+      <h2>Which of the following closures MOST impacted you?</h2>
+      <button onclick="saveAnswer('closure','Chili\'s'); next('q1','q2')">Chili's</button>
+      <button onclick="saveAnswer('closure','Peet\'s Coffee'); next('q1','q2')">Peet's Coffee</button>
+      <button onclick="saveAnswer('closure','Bob\'s Pizza'); next('q1','q2')">Bob's Pizza</button>
+      <button onclick="saveAnswer('closure','Reza\'s Restaurant'); next('q1','q2')">Reza's Restaurant</button>
+      <button onclick="saveAnswer('closure','Happy Lemon'); next('q1','q2')">Happy Lemon</button>
+      <button onclick="saveAnswer('closure','Coffee Lab'); next('q1','q2')">Coffee Lab</button>
+      <button onclick="saveAnswer('closure','Not affected'); next('q1','q2')">I am not affected</button>
+    </div>
+
+    <!-- Question 2 -->
+<div id="q2" class="hidden">
+  <h2>On a scale of 1-10, how upset are you about the closure you selected?</h2>
+
+  <button onclick="saveAnswer('upset',1); next('q2','q3')">1</button>
+  <button onclick="saveAnswer('upset',2); next('q2','q3')">2</button>
+  <button onclick="saveAnswer('upset',3); next('q2','q3')">3</button>
+  <button onclick="saveAnswer('upset',4); next('q2','q3')">4</button>
+  <button onclick="saveAnswer('upset',5); next('q2','q3')">5</button>
+  <button onclick="saveAnswer('upset',6); next('q2','q3')">6</button>
+  <button onclick="saveAnswer('upset',7); next('q2','q3')">7</button>
+  <button onclick="saveAnswer('upset',8); next('q2','q3')">8</button>
+  <button onclick="saveAnswer('upset',9); next('q2','q3')">9</button>
+  <button onclick="saveAnswer('upset',10); next('q2','q3')">10</button>
+</div>
+
+    <!-- Question 3 -->
+    <div id="q3" class="hidden">
+      <h2>How often did you frequent the place you selected?</h2>
+      <button onclick="saveAnswer('frequency','Once a week'); next('q3','q4')">Once a week</button>
+      <button onclick="saveAnswer('frequency','2-3x a week'); next('q3','q4')">2-3x a week</button>
+      <button onclick="saveAnswer('frequency','More than 3x a week'); next('q3','q4')">More than 3x a week</button>
+      <button onclick="saveAnswer('frequency','Once or twice a month'); next('q3','q4')">Once or twice a month</button>
+      <button onclick="saveAnswer('frequency','Once a quarter'); next('q3','q4')">Once a quarter</button>
+      <button onclick="saveAnswer('frequency','Just once or twice ever'); next('q3','q4')">Just once or twice ever</button>
+      <button onclick="saveAnswer('frequency','Never'); next('q3','q4')">I've never been</button>
+    </div>
+
+    <!-- Question 4 -->
+    <div id="q4" class="hidden">
+      <h2>What purpose did this place primarily serve for you?</h2>
+      <button onclick="saveAnswer('purpose','Studying'); next('q4','q5')">Studying</button>
+      <button onclick="saveAnswer('purpose','Socializing'); next('q4','q5')">Socializing/Hanging out</button>
+      <button onclick="saveAnswer('purpose','Date'); next('q4','q5')">Going on a date</button>
+      <button onclick="saveAnswer('purpose','Dining'); next('q4','q5')">Dining in</button>
+      <button onclick="saveAnswer('purpose','Take-out'); next('q4','q5')">Take-out</button>
+      <button onclick="saveAnswer('purpose','Work'); next('q4','q5')">Place of employment</button>
+      <button onclick="saveAnswer('purpose','Club'); next('q4','q5')">Club meetings/organized events</button>
+      <button onclick="saveAnswer('purpose','Other'); next('q4','q5')">Other</button>
+    </div>
+
+    <!-- Question 5 -->
+    <div id="q5" class="hidden">
+      <h2>Did you sign a petition to keep any of these places open?</h2>
+      <button onclick="saveAnswer('petition','Chili\'s'); showResults()">Chili's</button>
+      <button onclick="saveAnswer('petition','Peet\'s Coffee'); showResults()">Peet's Coffee</button>
+      <button onclick="saveAnswer('petition','Bob\'s Pizza'); showResults()">Bob's Pizza</button>
+      <button onclick="saveAnswer('petition','Reza\'s Restaurant'); showResults()">Reza's Restaurant</button>
+      <button onclick="saveAnswer('petition','Happy Lemon'); showResults()">Happy Lemon</button>
+      <button onclick="saveAnswer('petition','Coffee Lab'); showResults()">Coffee Lab</button>
+      <button onclick="saveAnswer('petition','None'); showResults()">I did not sign any petitions</button>
+    </div>
+
+    <div id="results" class="hidden"></div>
+
+    <!-- Survey charts pulled from our form -->
+    <div id="charts" class="hidden">
+      <h2>Survey Results</h2>
+
+       <iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxFycalYfimUlFQtDYyua2VyIMB9Df5YSIkICQKbgOD-z3viz9_Ad6tKNm2IXT0FcoVCuZm3BLnsRq/pubchart?oid=1188677608&amp;format=interactive"></iframe>
+
+       <iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxFycalYfimUlFQtDYyua2VyIMB9Df5YSIkICQKbgOD-z3viz9_Ad6tKNm2IXT0FcoVCuZm3BLnsRq/pubchart?oid=485424848&amp;format=interactive"></iframe>
+
+       <iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxFycalYfimUlFQtDYyua2VyIMB9Df5YSIkICQKbgOD-z3viz9_Ad6tKNm2IXT0FcoVCuZm3BLnsRq/pubchart?oid=1870411815&amp;format=interactive"></iframe>
+
+       <iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxFycalYfimUlFQtDYyua2VyIMB9Df5YSIkICQKbgOD-z3viz9_Ad6tKNm2IXT0FcoVCuZm3BLnsRq/pubchart?oid=1477653239&amp;format=interactive"></iframe>
+
+       <iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxFycalYfimUlFQtDYyua2VyIMB9Df5YSIkICQKbgOD-z3viz9_Ad6tKNm2IXT0FcoVCuZm3BLnsRq/pubchart?oid=574828697&amp;format=interactive"></iframe>
+
+    </div>
+
+  </div>
+
+  <script>
+    let userAnswers = {
+      closure: "",
+      upset: "",
+      frequency: "",
+      purpose: [],
+      petition: []
+    };
+
+    function saveAnswer(question,value){
+      if(Array.isArray(userAnswers[question])){
+        if(!userAnswers[question].includes(value)) userAnswers[question].push(value);
+      } else {
+        userAnswers[question] = value;
+      }
+    }
+
+    function next(current,nextQ){
+      document.getElementById(current).classList.add('hidden');
+      document.getElementById(nextQ).classList.remove('hidden');
+    }
+
+function showResults(){
+  document.querySelectorAll('.quiz > div').forEach(el=>{
+    if(!['results','charts'].includes(el.id)) el.classList.add('hidden');
+  });
+
+  let res = document.getElementById('results');
+  res.innerHTML = `
+    <h2>Your Answers:</h2>
+    <ul>
+      <li>Most impacted closure: ${userAnswers.closure}</li>
+      <li>Upset level: ${userAnswers.upset}</li>
+      <li>Frequency: ${userAnswers.frequency}</li>
+      <li>Purpose: ${userAnswers.purpose.join(', ')}</li>
+      <li>Petition: ${userAnswers.petition.join(', ')}</li>
+    </ul>
+  `;
+  res.classList.remove('hidden');
+
+  document.getElementById('charts').classList.remove('hidden');
+}
+  </script>
+</body>
