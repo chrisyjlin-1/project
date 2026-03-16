@@ -23,17 +23,28 @@
       color: #fff;
     }
     
-    .text{
+    .text{ /* text size */
       width:80%;
       font-size: 30px;
       text-align: center;
+    }
+    .headline{ /* headline size */
+      width: 80%;
+      font-size: 4em;
+      text-align: center;
+      font-weight:bold
+    }
 
+    .byline {
+      width:80%;
+      font-size: 2em;
+      text-align: center;
     }
     .vr-card{
       width: 80%;
       height: 600;
     }
-  @media (orientation:portrait){
+  @media (orientation:portrait){ /* portrait media query */
     .container{
       width:100%;
       margin: 0 auto;
@@ -42,9 +53,19 @@
     }
     .text{
       width:95%;
-      font-size: 2rem;
+      font-size: 3rem;
       text-align: center;
 
+    }
+        .headline{
+      width:95%;
+      font-size: 5em;
+      text-align: center;
+    }
+    .byline{
+      width:95%;
+      font-size: 4em;
+      text-align: center;
     }
      .vr-card{
       width: 95%;
